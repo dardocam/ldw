@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+    <style>
+      .ryu {
+        position: absolute;
+        width: 435px;
+        height: 267px;
+        background: url("ryu-sprite-demo.png") no-repeat 0 0%;
+        animation: sprite 4s steps(45) infinite;
+        top: 150px;
+      }
+
+      .contenedor {
+        position: relative;
+        box-sizing: border-box;
+        width: 500px;
+        height: 500px;
+        border: 15px solid green;
+        background-color: orangered;
+        background: url("paisaje.jpg") no-repeat 0 0%;
+        background-size: cover;
+      }
+      .imagen {
+        box-sizing: border-box;
+        width: 80px;
+        height: 80px;
+        background: url("start.png") no-repeat 0 0%;
+        background-size: cover;
+        background-position-x: -25px;
+        position: absolute;
+        right: 0;
+        animation: moving 4s steps(25) infinite;
+        border: 5px solid black;
+      }
+
+      @keyframes sprite {
+        from {
+          background-position: 0 0%;
+        }
+        to {
+          background-position: 0 100%;
+        }
+      }
+      @keyframes moving {
+        0% {
+          bottom: calc(100% - 80px);
+          left: 0;
+          right: 0;
+          top: 0;
+        }
+        25% {
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: calc(100% - 80px);
+        }
+        50% {
+          bottom: 0;
+          left: calc(100% - 80px);
+          right: 0;
+          top: calc(100% - 80px);
+        }
+        75% {
+          bottom: 0;
+          left: calc(100% - 80px);
+          right: 0;
+          top: 0;
+        }
+        100% {
+          bottom: calc(100% - 80px);
+          left: 0;
+          right: 0;
+          top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="imagen"></div>
+      <div class="ryu"></div>
+    </div>
+  </body>
+</html>
